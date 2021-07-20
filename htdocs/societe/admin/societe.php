@@ -24,7 +24,7 @@
  *	\ingroup    company
  *	\brief      Third party module setup page
  */
-
+// *************MOD
 require '../../main.inc.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/company.lib.php';
