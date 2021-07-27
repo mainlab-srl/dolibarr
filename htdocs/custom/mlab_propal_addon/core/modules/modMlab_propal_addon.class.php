@@ -490,14 +490,18 @@ class modMlab_propal_addon extends DolibarrModules
 	 */
 	private function set_modules_documents() {
 
+		global $conf, $user, $langs, $db;
+
 		// Define array od templates to add
+		// NOTE Set default true only for une template for each type you have
 		$custom_models = [
 			[
 				'module'     => 'propale',
 				'type'       => 'propal',
 				'model_name' => 'propal_test',
 				'libelle'    => 'pdf_propal_test',
-				'file'       => 'pdf_propal_test.modules.php'
+				'file'       => 'pdf_propal_test.modules.php',
+				'default'    => false,
 			]
 		];
 
@@ -546,6 +550,20 @@ class modMlab_propal_addon extends DolibarrModules
 
 			// Activate it
 			$result = addDocumentModel( $custom_model['model_name'], $custom_model['type'], $custom_model['libelle'] );
+
+			// Check if to set the template as the default one
+			if ( $custom_model['model_name'] ) {
+
+				if ( dolibarr_set_const( $db, "PROPALE_ADDON_PDF", $custom_model['model_name'], 'chaine', 0, '', $conf->entity ) ) {
+					$conf->global->PROPALE_ADDON_PDF = $custom_model['model_name'];
+				}
+
+				// On active le modele
+				$ret = delDocumentModel( $custom_model['model_name'], $custom_model['type'] );
+				if ( $ret > 0 ) {
+					$ret = addDocumentModel( $custom_model['model_name'], $custom_model['type'], $custom_model['labelle'] );
+				}
+			}
 
 			return $result;
 		}
