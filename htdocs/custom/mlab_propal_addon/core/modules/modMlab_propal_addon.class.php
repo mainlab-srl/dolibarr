@@ -462,6 +462,9 @@ class modMlab_propal_addon extends DolibarrModules
 			}
 		}
 
+		// Call function so set up alla the document models for this module
+		$result = $this->set_modules_documents();
+
 		return $this->_init($sql, $options);
 	}
 
@@ -473,9 +476,78 @@ class modMlab_propal_addon extends DolibarrModules
 	 *  @param      string	$options    Options when enabling module ('', 'noboxes')
 	 *  @return     int                 1 if OK, 0 if KO
 	 */
-	public function remove($options = '')
-	{
+	public function remove($options = '') {
+
+		// ! TODO Cosa fare dei template quando il modulo viene disattivato? Direi eliminarli (SteveAgl 27/07/2021)
 		$sql = array();
 		return $this->_remove($sql, $options);
+	}
+
+	/**
+	 * Copy all the new print templates for various modules
+	 *
+	 * @return int
+	 */
+	private function set_modules_documents() {
+
+		// Define array od templates to add
+		$custom_models = [
+			[
+				'module'     => 'propale',
+				'type'       => 'propal',
+				'model_name' => 'propal_test',
+				'libelle'    => 'pdf_propal_test',
+				'file'       => 'pdf_propal_test.modules.php'
+			]
+		];
+
+		// Loop through the modules
+		foreach ( $custom_models as $custom_model ) {
+
+			// ! TODO Migliorare glla gestione errori
+
+			// Check if destination module exists
+			$path   = DOL_DOCUMENT_ROOT . '/core/modules/' . $custom_model['module'];
+			$result = is_dir( $path );
+
+			if ( ! $result ) {
+				echo 'Manca il modulo: ' . $custom_model['module'];
+				die();
+			}
+
+			// Check if template dir exists
+			$path   .= '/doc';
+			$result = is_dir( $path );
+
+			if ( ! $result ) {
+				echo 'Manca la directory doc del modulo: ' . $custom_model['module'];
+				die();
+			}
+
+			// Check if file already exists and delete it
+			$path   .= '/' . $custom_model['file'];
+			$result = is_file( $path );
+
+			if ( $result ) {
+				unlink( '$path' );
+			}
+
+			// Copy file to the modules
+			$source = __DIR__ . '/../../document_models/' . $custom_model['file'];
+			$dest   = $path;
+
+			$result = copy( $source, $dest );
+
+			if ( ! $result ) {
+				echo __DIR__ . PHP_EOL;
+				echo 'Errore copiando ' . $source . ' in ' . $dest . PHP_EOL;
+				die();
+			}
+
+			// Activate it
+			$result = addDocumentModel( $custom_model['model_name'], $custom_model['type'], $custom_model['libelle'] );
+
+			return $result;
+		}
 	}
 }
