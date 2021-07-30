@@ -414,7 +414,12 @@ class modMlab_propal_addon extends DolibarrModules
 		if ($result < 0) return -1; // Do not activate module if error 'not allowed' returned when loading module SQL queries (the _load_table run sql with run_sql with the error allowed parameter set to 'default')
 
 		// ! TODO Aggiungere qui tutti i campi extra per la testata e le righe di dettaglio dei preventivi
+
 		// Create extrafields during init
+
+		// Define extrafields for various modules
+		$this->set_modules_extrafields();
+
 		//include_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
 		//$extrafields = new ExtraFields($this->db);
 		//$result1=$extrafields->addExtraField('mlab_propal_addon_myattr1', "New Attr 1 label", 'boolean', 1,  3, 'thirdparty',   0, 0, '', '', 1, '', 0, 0, '', '', 'mlab_propal_addon@mlab_propal_addon', '$conf->mlab_propal_addon->enabled');
@@ -567,5 +572,341 @@ class modMlab_propal_addon extends DolibarrModules
 
 			return $result;
 		}
+	}
+
+	private function set_modules_extrafields() {
+
+		// Get array of the extrafields to add
+		$extrafields_list = $this->get_extrafields_list();
+
+		include_once DOL_DOCUMENT_ROOT . '/core/class/extrafields.class.php';
+		$extrafields = new ExtraFields( $this->db );
+
+		if ( empty( $extrafields_list ) ) {
+			return;
+		}
+
+		foreach ( $extrafields_list as $item ) {
+			$result = $extrafields->addExtraField(
+				$item['attrname'],
+				$item['label'],
+				$item['type'],
+				$item['pos'],
+				$item['size'],
+				$item['elementtype'],
+				$item['unique'],
+				$item['required'],
+				$item['default_value'],
+				$item['param'],
+				$item['alwayseditable'],
+				$item['perms'],
+				$item['list'],
+				$item['help'],
+				$item['computed'],
+				$item['entity'],
+				$item['langfile'],
+				$item['enabled']
+			);
+		}
+
+	}
+
+	private function get_extrafields_list() {
+
+		$extrafields_list = [];
+
+		/*
+		 * Add every extrafield with the following parameters
+		 * ( refer to the addExtraField function in htdocs/core/class/extrafields.class.php )
+		 *  attrname			Code of attribute
+		 *  label				label of attribute
+		 *  type				Type of attribute ('boolean','int','varchar','text','html','date','datehour','price','phone','mail','password','url','select','checkbox','separate',...)
+		 *  pos					Position of attribute
+		 *  size				Size/length definition of attribute ('5', '24,8', ...). For float, it contains 2 numeric separated with a comma.
+		 *  elementtype			Element type. Same value than object->table_element (Example 'member', 'product', 'thirdparty', ...)
+		 *  unique				Is field unique or not
+		 *  required			Is field required or not
+		 *  default_value		Defaulted value (In database. use the default_value feature for default value on screen. Example: '', '0', 'null', 'avalue')
+		 *  param				Params for field (ex for select list : array('options' => array(value'=>'label of option')) )
+		 *  alwayseditable		Is attribute always editable regardless of the document status
+		 *  perms				Permission to check
+		 *  list				Visibilty ('0'=never visible, '1'=visible on list+forms, '2'=list only, '3'=form only or 'eval string')
+		 *  help				Text with help tooltip
+		 *  computed			Computed value
+		 *  entity    		 	Entity of extrafields (for multicompany modules)
+		 *  langfile  		 	Language file
+		 *  enabled  		 	Condition to have the field enabled or not
+		 *  totalizable			Is a measure. Must show a total on lists
+		 *  printable			Is extrafield displayed on PDF
+		 *
+		 *  Use this template for array entries:
+		 *
+		 *  extrafield = [
+		 *		'attrname' => '',
+		 *		'label' => '',
+		 *		'type' => '',
+		 *		'pos' => 0,
+		 *		'size' => 0,
+		 *		'elementtype' => '',
+		 *		'unique' => 0,
+		 *		'required' => 0,
+		 *		'default_value' => '',
+		 *		'param' => '',
+		 *		'alwayseditable' => 0,
+		 *		'perms' => '',
+		 *		'list' => 1,
+		 *		'help' => '',
+		 *		'computed' => '',
+		 *		'entity' => 1,
+		 *		'langfile' => '',
+		 *		'enabled' => 0,
+		 *		'totalizable' => 0,
+		 *		'printable' => 0,
+		 *	]
+		 *
+		 */
+
+		$extrafield = [
+			'attrname'       => '',
+			'label'          => '',
+			'type'           => '',
+			'pos'            => 100,
+			'size'           => 0,
+			'elementtype'    => '',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 0,
+			'perms'          => '',
+			'list'           => 1,
+			'help'           => '',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 0,
+			'totalizable'    => 0,
+			'printable'      => 0,
+		];
+
+		// Extrafield per la testata di propale
+
+		// Sconto in stampa
+		$extrafield = [
+			'attrname'       => 'sconto_stampa',
+			'label'          => 'Sconto in stampa',
+			'type'           => 'select',
+			'pos'            => 100,
+			'size'           => 0,
+			'elementtype'    => 'propal',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => [
+				'options' => [
+					'1' => 'Si',
+					'2' => 'No',
+					'3' => 'Solo se presente',
+				],
+			],
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Indica se la percentuale di sconto appare nelle stampe o meno',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		// Multisconto predefinito
+		$extrafield = [
+			'attrname'       => 'multisconto_predefinito',
+			'label'          => 'Multisconto predefinito',
+			'type'           => 'double',
+			'pos'            => 101,
+			'size'           => '2,2',
+			'elementtype'    => 'propal',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Valore di sconto predefinito per il preventivo',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		// Extrafield per le righe di dettaglio di propale
+
+		// Mostra intestazione
+		$extrafield = [
+			'attrname'       => 'mostra_intestazione',
+			'label'          => 'Mostra intestazione',
+			'type'           => 'boolean',
+			'pos'            => 100,
+			'size'           => '',
+			'elementtype'    => 'propaldet',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Mostra intestazione del blocco nelle stampe',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		// Mostra i dettagli
+		$extrafield = [
+			'attrname'       => 'mostra_dettagli',
+			'label'          => 'Mostra i dettagli',
+			'type'           => 'boolean',
+			'pos'            => 101,
+			'size'           => '',
+			'elementtype'    => 'propaldet',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Mostra i dettagli articoli blocco nelle stampe',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		// Mostra i prezzi
+		$extrafield = [
+			'attrname'       => 'mostra_prezzi',
+			'label'          => 'Mostra i prezzi',
+			'type'           => 'boolean',
+			'pos'            => 102,
+			'size'           => '',
+			'elementtype'    => 'propaldet',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Mostra i prezzi degli articoli del blocco nelle stampe',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		// Mostra totale
+		$extrafield = [
+			'attrname'       => 'mostra_totale',
+			'label'          => 'Mostra totale',
+			'type'           => 'boolean',
+			'pos'            => 103,
+			'size'           => '',
+			'elementtype'    => 'propaldet',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Mostra il totale del blocco nelle stampe',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		// Percentuale di ricarico extra
+		$extrafield = [
+			'attrname'       => 'ricarico_extra',
+			'label'          => 'Percentuale di ricarico extra',
+			'type'           => 'double',
+			'pos'            => 104,
+			'size'           => '2,2',
+			'elementtype'    => 'propaldet',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Percentuale di ricarico extra sul totale del blocco',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		// Forza il totale del blocco
+		$extrafield = [
+			'attrname'       => 'forza_totale',
+			'label'          => 'Forza il totale del blocco',
+			'type'           => 'double',
+			'pos'            => 105,
+			'size'           => '24,2',
+			'elementtype'    => 'propaldet',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Valore da forzare come totale del blocco',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
+		return $extrafields_list;
 	}
 }
