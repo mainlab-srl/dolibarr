@@ -751,6 +751,32 @@ class modMlab_propal_addon extends DolibarrModules
 
 		// Extrafield per le righe di dettaglio di propale
 
+		// Mappale
+		$extrafield = [
+			'attrname'       => 'mappale',
+			'label'          => 'Mappale',
+			'type'           => 'varchar',
+			'pos'            => 99,
+			'size'           => '5',
+			'elementtype'    => 'propaldet',
+			'unique'         => 0,
+			'required'       => 0,
+			'default_value'  => '',
+			'param'          => '',
+			'alwayseditable' => 1,
+			'perms'          => '',
+			'list'           => 3,
+			'help'           => 'Riferimento mappale',
+			'computed'       => '',
+			'entity'         => 1,
+			'langfile'       => '',
+			'enabled'        => 1,
+			'totalizable'    => 0,
+			'printable'      => 3,
+		];
+
+		array_push( $extrafields_list, $extrafield );
+
 		// Mostra intestazione
 		$extrafield = [
 			'attrname'       => 'mostra_intestazione',
