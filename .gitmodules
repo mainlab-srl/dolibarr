@@ -1,3 +1,4 @@
 [submodule "htdocs/custom/mlpropaleaddon"]
 	path = htdocs/custom/mlpropaleaddon
 	url = https://github.com/mainlab-srl/mlpropaleaddon.git
+	branch = develop
