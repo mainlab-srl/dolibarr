@@ -4,4 +4,4 @@
 	branch = develop
 [submodule "mlpaymentsscheduleaddon"]
 	path = mlpaymentsscheduleaddon
-	url = D:\\Mainlab\\dolibarr\\dolibar-arclight\\htdocs\\custom\\mlpaymentsscheduleaddon
+url=https://github.com/mainlab-srl/mlpaymentsscheduleaddon.git
