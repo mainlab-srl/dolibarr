@@ -2,3 +2,6 @@
 	path = htdocs/custom/mlpropaleaddon
 	url = https://github.com/mainlab-srl/mlpropaleaddon.git
 	branch = develop
+[submodule "mlpaymentsscheduleaddon"]
+	path = mlpaymentsscheduleaddon
+	url = D:\\Mainlab\\dolibarr\\dolibar-arclight\\htdocs\\custom\\mlpaymentsscheduleaddon
