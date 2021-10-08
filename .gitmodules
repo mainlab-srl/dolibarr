@@ -2,6 +2,3 @@
 	path = htdocs/custom/mlpropaleaddon
 	url = https://github.com/mainlab-srl/mlpropaleaddon.git
 	branch = develop
-[submodule "mlpaymentsscheduleaddon"]
-	path = mlpaymentsscheduleaddon
-url=https://github.com/mainlab-srl/mlpaymentsscheduleaddon.git
