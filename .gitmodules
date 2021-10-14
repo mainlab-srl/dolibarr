@@ -3,6 +3,6 @@
 	url = https://github.com/mainlab-srl/mlpropaleaddon.git
 	branch = develop
 [submodule "mldeadlines"]
-	path = mldeadlines
-	url = C:\\wamp64\\www\\dolibarr-archlight\\htdocs\\custom\\mldeadlines
+	path = htdocs/custom/mldeadlines
+	url = https://github.com/mainlab-srl/mldeadlines.git
 	branch = develop
