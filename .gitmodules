@@ -11,4 +11,4 @@
 	url = https://github.com/mainlab-srl/mlriba.git
 [submodule "mlimportproduct"]
 	path = mlimportproduct
-	url = D:\\mainlab\\dolibarr\\dolibar-arclight\\htdocs\\custom\\mlimportproduct
+url=https://github.com/mainlab-srl/mlimportproduct.git
