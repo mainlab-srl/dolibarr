@@ -9,6 +9,6 @@
 [submodule "htdocs/custom/mlriba"]
 	path = htdocs/custom/mlriba
 	url = https://github.com/mainlab-srl/mlriba.git
-[submodule "mlimportproduct"]
-	path = mlimportproduct
-url=https://github.com/mainlab-srl/mlimportproduct.git
+[submodule "htdocs/custom/mlimportproduct"]
+	path = htdocs/custom/mlimportproduct
+	url = https://github.com/steve-agl/mlimportproduct-.git
