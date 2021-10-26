@@ -12,3 +12,7 @@
 [submodule "htdocs/custom/mlimportproduct"]
 	path = htdocs/custom/mlimportproduct
 	url = https://github.com/steve-agl/mlimportproduct-.git
+[submodule "htdocs/custom/mltransactionrefs"]
+	path = htdocs/custom/mltransactionrefs
+	url = https://github.com/mainlab-srl/mltransactionrefs.git
+	branch = develop
