@@ -9,9 +9,11 @@
 [submodule "htdocs/custom/mlriba"]
 	path = htdocs/custom/mlriba
 	url = https://github.com/mainlab-srl/mlriba.git
+	branch = develop
 [submodule "htdocs/custom/mlimportproduct"]
 	path = htdocs/custom/mlimportproduct
 url=https://github.com/steve-agl/mlimportproduct.git
+	branch = develop
 [submodule "htdocs/custom/mltransactionrefs"]
 	path = htdocs/custom/mltransactionrefs
 	url = https://github.com/mainlab-srl/mltransactionrefs.git
