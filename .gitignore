@@ -55,3 +55,6 @@ yarn.lock
 package-lock.json
 
 doc/install.lock
+htdocs/core/modules/propale/doc/pdf_arch_nofilters.modules.php
+htdocs/core/modules/propale/doc/pdf_archlight.modules.php
+htdocs/core/modules/propale/doc/pdf_clienti.modules.php
