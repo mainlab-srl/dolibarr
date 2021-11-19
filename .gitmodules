@@ -1,0 +1,20 @@
+[submodule "htdocs/custom/mlpropaleaddon"]
+	path = htdocs/custom/mlpropaleaddon
+	url = https://github.com/mainlab-srl/mlpropaleaddon.git
+	branch = master
+[submodule "htdocs/custom/mldeadlines"]
+	path = htdocs/custom/mldeadlines
+	url = https://github.com/mainlab-srl/mldeadlines.git
+	branch = master
+[submodule "htdocs/custom/mlriba"]
+	path = htdocs/custom/mlriba
+	url = https://github.com/mainlab-srl/mlriba.git
+	branch = master
+[submodule "htdocs/custom/mlimportproduct"]
+	path = htdocs/custom/mlimportproduct
+url=https://github.com/steve-agl/mlimportproduct.git
+	branch = master
+[submodule "htdocs/custom/mltransactionrefs"]
+	path = htdocs/custom/mltransactionrefs
+	url = https://github.com/mainlab-srl/mltransactionrefs.git
+	branch = master
