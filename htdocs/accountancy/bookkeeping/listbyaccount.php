@@ -93,7 +93,14 @@ if ($sortorder == "") $sortorder = "ASC";
 if ($sortfield == "") $sortfield = "t.doc_date,t.rowid";
 
 // Initialize technical object to manage hooks of page. Note that conf->hooks_modules contains array of hook context
-$object = new BookKeeping($db);
+// **** BEGING INJECTED CODE
+dol_include_once('/custom/mltransactionrefs/class/mltransactionrefs.class.php');
+if(class_exists('MlBookKeeping'))
+	$object = new MlBookKeeping($db);
+else
+	$object = new BookKeeping($db);
+// $object = new BookKeeping($db); *** ORIGINAL CODE
+// **** END INJECTED CODE
 $formfile = new FormFile($db);
 $hookmanager->initHooks(array('bookkeepingbyaccountlist'));
 
@@ -767,6 +774,10 @@ while ($i < min($num, $limit))
 
 	// Fields from hook
 	$parameters = array('arrayfields'=>$arrayfields, 'obj'=>$obj);
+	// **** BEGIN INJECTED CODE
+	$parameters['obj'] = $object;
+	$parameters['index'] = $i;
+	// **** END INJECTED CODE
 	$reshook = $hookmanager->executeHooks('printFieldListValue', $parameters); // Note that $action and $object may have been modified by hook
 	print $hookmanager->resPrint;
 
