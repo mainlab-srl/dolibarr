@@ -30,7 +30,11 @@ require_once DOL_DOCUMENT_ROOT.'/imports/class/import.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/modules/import/modules_import.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/files.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/images.lib.php';
-require_once DOL_DOCUMENT_ROOT.'/core/lib/import.lib.php';
+
+// **** BEGIN INJECTED CODE -- Initialise hook manager
+require_once DOL_DOCUMENT_ROOT.'/core/lib/import.lib.php';$hookmanager=new HookManager($db);
+$hookmanager->initHooks(array('import'));
+// **** END INJECTED CODE
 
 // Load translation files required by the page
 $langs->loadLangs(array('exports', 'compta', 'errors'));
@@ -1998,6 +2002,18 @@ print '<br>';
 // End of page
 llxFooter();
 $db->close();
+
+// **** BEGIN INJECTED CODE -- Hook in after the end of import
+$parameters = [
+	'obj' => $obj,	// Oggetto ImportCsv, contiene la proprietà datatoimport
+	'objimport' => $objimport, // Oggetto Import, non sembra molto utile
+	'importId' => $importid, // ID univoco importazione (import key)
+];
+$reshook = $hookmanager->executeHooks('doAfterImport', $parameters); // Note that $action and $object may have been
+if ($reshook < 0) {
+	// errore
+}
+// **** END INJECTED CODE
 
 
 /**
