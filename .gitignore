@@ -59,3 +59,5 @@ htdocs/core/modules/propale/doc/pdf_arch_nofilters.modules.php
 htdocs/core/modules/propale/doc/pdf_arch_filters.modules.php
 htdocs/core/modules/propale/doc/pdf_archlight.modules.php
 htdocs/core/modules/propale/doc/pdf_clienti.modules.php
+htdocs/*_riba.txt
+htdocs/core/modules/commande/doc/pdf_archlight_clientorder.modules.php
