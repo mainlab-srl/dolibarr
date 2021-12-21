@@ -5,3 +5,16 @@
 ### Modified
 - Injected code in accountancy/bookkeeping/listbyaccount.php to show initial balance in accounting
 - Various submodules updated
+
+## [ml1.0rc2] - 2021-12-15
+
+### Added
+- Hook doAfterImport to imports/import.php
+
+### Modified
+- Submodules updated
+
+## [20211221] - 2021-12-21
+
+### Modified
+- Submodules updated
