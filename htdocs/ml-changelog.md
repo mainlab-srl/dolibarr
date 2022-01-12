@@ -23,3 +23,9 @@
 
 ### Modified
 - Submodules updated
+
+## [20220112] - 2022-01-12
+
+### Modified
+- Submodules updated
+- Added vscode config files to ignore
