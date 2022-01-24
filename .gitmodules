@@ -18,3 +18,6 @@ url=https://github.com/steve-agl/mlimportproduct.git
 	path = htdocs/custom/mltransactionrefs
 	url = https://github.com/mainlab-srl/mltransactionrefs.git
 	branch = master
+[submodule "htdocs/custom/mlmassinvoicefromshipments"]
+	path = htdocs/custom/mlmassinvoicefromshipments
+	url = https://github.com/mainlab-srl/mlmassinvoicefromshipments.git
