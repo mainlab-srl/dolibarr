@@ -21,3 +21,6 @@ url=https://github.com/steve-agl/mlimportproduct.git
 [submodule "htdocs/custom/mlmassinvoicefromshipments"]
 	path = htdocs/custom/mlmassinvoicefromshipments
 	url = https://github.com/mainlab-srl/mlmassinvoicefromshipments.git
+[submodule "htdocs/custom/mlcustomprints"]
+	path = htdocs/custom/mlcustomprints
+	url = https://github.com/mainlab-srl/mlcustomprints.git
