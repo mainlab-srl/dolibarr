@@ -29,3 +29,11 @@
 ### Modified
 - Submodules updated
 - Added vscode config files to ignore
+
+## [20220130] - 2022-01-30
+
+### Modified
+- Submodules updated
+
+### Added
+- Submodules mlmassinvoicefromshipments, mlcustomprints
