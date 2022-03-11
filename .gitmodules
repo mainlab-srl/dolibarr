@@ -24,3 +24,15 @@ url=https://github.com/steve-agl/mlimportproduct.git
 [submodule "htdocs/custom/mlcustomprints"]
 	path = htdocs/custom/mlcustomprints
 	url = https://github.com/mainlab-srl/mlcustomprints.git
+[submodule "htdocs/custom/mlsupplierinvoiceaccounting"]
+	path = htdocs/custom/mlsupplierinvoiceaccounting
+	url = https://github.com/mainlabsrl/mlsupplierinvoiceaccounting.git
+	branch = develop
+[submodule "htdocs/custom/mlautosalesrep"]
+	path = htdocs/custom/mlautosalesrep
+	url = https://github.com/mainlab-srl/mlautosalesrep.git
+	branch = develop
+[submodule "htdocs/custom/mlshowsdierrors"]
+	path = htdocs/custom/mlshowsdierrors
+	url = https://github.com/mainlab-srl/mlshowsdierrors.git
+	branch = develop
