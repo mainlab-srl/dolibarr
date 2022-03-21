@@ -37,3 +37,12 @@
 
 ### Added
 - Submodules mlmassinvoicefromshipments, mlcustomprints
+
+## [20220130] - 2022-01-30
+
+### Modified
+- Custom code in shipment list to add columns and filters
+- Submodules updated
+
+### Added
+- Submodules mlshowsdierrors, mlautosalesrep
