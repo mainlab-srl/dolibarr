@@ -36,3 +36,6 @@ url=https://github.com/steve-agl/mlimportproduct.git
 	path = htdocs/custom/mlshowsdierrors
 	url = https://github.com/mainlab-srl/mlshowsdierrors.git
 	branch = develop
+[submodule "htdocs/custom/mlpofromco"]
+	path = htdocs/custom/mlpofromco
+	url = https://github.com/mainlab-srl/mlpofromco.git
