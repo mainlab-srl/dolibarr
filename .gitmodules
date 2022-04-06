@@ -39,3 +39,7 @@ url=https://github.com/steve-agl/mlimportproduct.git
 [submodule "htdocs/custom/mlpofromco"]
 	path = htdocs/custom/mlpofromco
 	url = https://github.com/mainlab-srl/mlpofromco.git
+[submodule "htdocs/custom/mlforcediscountonpo"]
+	path = htdocs/custom/mlforcediscountonpo
+	url = https://github.com/mainlab-srl/mlforcediscountonpo.git
+	branch = develop
