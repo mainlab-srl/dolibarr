@@ -52,6 +52,31 @@ $expeditionid = GETPOST('id', 'int');
 if ($user->socid) $socid = $user->socid;
 $result = restrictedArea($user, 'expedition', $expeditionid, '');
 
+// **** BEGIN INJECTED CODE -- Always restore some filters and sort criteria
+$resetFilters = GETPOST('button_removefilter_x', 'alpha') || GETPOST('button_removefilter.x', 'alpha') || GETPOST('button_removefilter', 'alpha');
+if(!$resetFilters && isset($_SESSION['lastsearch_values_tmp_expedition/list.php'])) {
+
+	$lastsearch_values = json_decode($_SESSION['lastsearch_values_tmp_expedition/list.php']);
+
+	// Ordinamento
+	if(!GETPOSTISSET('sortfield' && isset($lastsearch_values->sortfield))) {
+		$_POST['sortfield'] = $lastsearch_values->sortfield;
+		$_POST['sortorder'] = $lastsearch_values->sortorder;
+	}
+
+	// FIltro per causale trasporto
+	if(!GETPOSTISSET('search_options_ddti_causale_trasporto') && isset($lastsearch_values->search_options_ddti_causale_trasporto)) {
+		$_POST['search_options_ddti_causale_trasporto'] = $lastsearch_values->search_options_ddti_causale_trasporto;
+	}
+
+	// Filtro fattura sì/no
+	if(!GETPOSTISSET('search_linked_invoice') && isset($lastsearch_values->search_linked_invoice)) {
+		$_POST['search_linked_invoice'] = $lastsearch_values->search_linked_invoice;
+	}
+	
+}
+// **** END INJECTED CODE
+
 $search_ref_exp = GETPOST("search_ref_exp", 'alpha');
 $search_ref_liv = GETPOST('search_ref_liv', 'alpha');
 $search_ref_customer = GETPOST('search_ref_customer', 'alpha');
