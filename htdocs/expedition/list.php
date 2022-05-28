@@ -74,6 +74,16 @@ if(!$resetFilters && isset($_SESSION['lastsearch_values_tmp_expedition/list.php'
 		$_POST['search_linked_invoice'] = $lastsearch_values->search_linked_invoice;
 	}
 	
+	// Filtro tipo di pagamento
+	if(!GETPOSTISSET('search_mode_reglement_id') && isset($lastsearch_values->search_mode_reglement_id)) {
+		$_POST['search_mode_reglement_id'] = $lastsearch_values->search_mode_reglement_id;
+	}
+	
+	// Filtro termini di pagamento
+	if(!GETPOSTISSET('search_cond_reglement_id') && isset($lastsearch_values->search_cond_reglement_id)) {
+		$_POST['search_cond_reglement_id'] = $lastsearch_values->search_cond_reglement_id;
+	}
+	
 }
 // **** END INJECTED CODE
 
@@ -100,6 +110,8 @@ $search_categ_cus = GETPOST("search_categ_cus", 'int');
 $search_product_category = GETPOST('search_product_category', 'int');
 $optioncss = GETPOST('optioncss', 'alpha');
 $search_linked_invoice = GETPOST('search_linked_invoice','int'); // **** INJECTED CODE
+$search_mode_reglement_id = GETPOST('search_mode_reglement_id','int'); // **** INJECTED CODE
+$search_cond_reglement_id = GETPOST('search_cond_reglement_id','int'); // **** INJECTED CODE
 
 $limit = GETPOST('limit', 'int') ?GETPOST('limit', 'int') : $conf->liste_limit;
 $sortfield = GETPOST('sortfield', 'aZ09comma');
@@ -207,6 +219,8 @@ if (GETPOST('button_removefilter_x', 'alpha') || GETPOST('button_removefilter.x'
 	$search_array_options = array();
 	$search_categ_cus = 0;
 	$search_linked_invoice = -1; // **** INJECTED CODE
+	$search_mode_reglement_id = -1; // **** INJECTED CODE
+	$search_cond_reglement_id = -1; // **** INJECTED CODE
 }
 
 if (empty($reshook))
@@ -382,6 +396,9 @@ if ($resql)
 	if ($search_status != '') $param .= '&search_status='.urlencode($search_status);
 	if ($optioncss != '')  $param .= '&optioncss='.urlencode($optioncss);
 	if ($search_linked_invoice >= 0) $param .= '&search_linked_invoice='.urlencode($search_linked_invoice); // **** INJECTED CODE
+	if ($search_mode_reglement_id >= 0) $param .= '&search_mode_reglement_id='.urlencode($search_mode_reglement_id); // **** INJECTED CODE
+	if ($search_cond_reglement_id >= 0) $param .= '&search_cond_reglement_id='.urlencode($search_cond_reglement_id); // **** INJECTED CODE
+
 	// Add $param from extra fields
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_list_search_param.tpl.php';
 
