@@ -1,5 +1,11 @@
 # CHANGELOG FOR ML-DOLIBARR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## [ml1.2] - 2022-05-30
+
+### Modified
+- Custom code in shipment list to add some filters
+- Submodules updated
+
 ## [ml1.1] - 2022-04-29
 
 ### Modified
