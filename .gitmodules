@@ -43,3 +43,7 @@ url=https://github.com/steve-agl/mlimportproduct.git
 	path = htdocs/custom/mlforcediscountonpo
 	url = https://github.com/mainlab-srl/mlforcediscountonpo.git
 	branch = develop
+[submodule "htdocs/custom/mlddtcarico"]
+	path = htdocs/custom/mlddtcarico
+	url = https://github.com/mainlab-srl/mlddtcarico.git
+	branch = develop
