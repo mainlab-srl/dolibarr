@@ -47,3 +47,7 @@ url=https://github.com/steve-agl/mlimportproduct.git
 	path = htdocs/custom/mlddtcarico
 	url = https://github.com/mainlab-srl/mlddtcarico.git
 	branch = develop
+[submodule "htdocs/custom/mlibancheck"]
+	path = htdocs/custom/mlibancheck
+	url = https://github.com/mainlab-srl/mlibancheck.git
+	branch = develop
