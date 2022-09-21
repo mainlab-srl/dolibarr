@@ -1,5 +1,24 @@
 # CHANGELOG FOR ML-DOLIBARR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## [ml1.3] - 2022-09-21
+
+### Fixed
+- Import prodotti: importi decimali, iva, dir. temp upload
+- Causali scadenze aggregate, dim. campi, cig/cup caratteri speciali in file riba
+- Eliminazione fattura cancella scadenze collegate
+- Preventivi: ricalcolo con tot. forzati di blocco (parz.)
+- Vis. pagamenti in lista sped.
+
+### Modified
+- CORE: Abilitata mod. termini di pag. su ndc
+- Controllo dip. da mlpofromco in vis. ordine
+- Uniformato rif. DDT singolo in fattura al caso DDT multiplo
+- Rimosso rif. DDT in pdf fattura cliente
+
+### Added
+- Submodule mlibancheck
+- Propagazione note DDT -> fattura
+
 ## [ml1.2] - 2022-05-30
 
 ### Modified
