@@ -9,7 +9,6 @@ nbproject
 default.properties
 .settings/
 .buildpath
-.gitmodules
 /.project
 /.pydevproject
 /.vscode
@@ -65,3 +64,4 @@ htdocs/.vscode/
 htdocs/install.lock
 materiale/
 .gitmodules.bak
+htdocs/conf/conf.php.bak
