@@ -12,7 +12,7 @@
 	branch = master
 [submodule "htdocs/custom/mlimportproduct"]
 	path = htdocs/custom/mlimportproduct
-url=https://github.com/steve-agl/mlimportproduct.git
+url=https://github.com/mainlab-srl/mlimportproduct.git
 	branch = master
 [submodule "htdocs/custom/mltransactionrefs"]
 	path = htdocs/custom/mltransactionrefs
@@ -26,7 +26,7 @@ url=https://github.com/steve-agl/mlimportproduct.git
 	url = https://github.com/mainlab-srl/mlcustomprints.git
 [submodule "htdocs/custom/mlsupplierinvoiceaccounting"]
 	path = htdocs/custom/mlsupplierinvoiceaccounting
-	url = https://github.com/mainlabsrl/mlsupplierinvoiceaccounting.git
+url=https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
 	branch = develop
 [submodule "htdocs/custom/mlautosalesrep"]
 	path = htdocs/custom/mlautosalesrep
