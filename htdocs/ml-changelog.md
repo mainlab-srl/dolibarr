@@ -1,5 +1,10 @@
 # CHANGELOG FOR ML-DOLIBARR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## [ml1.3.1] - 2022-10-21
+
+### Modified
+- Aggiornamento submodules e url su mainlab-srl
+
 ## [ml1.3] - 2022-09-21
 
 ### Fixed
