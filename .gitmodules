@@ -21,33 +21,35 @@ url=https://github.com/mainlab-srl/mlimportproduct.git
 [submodule "htdocs/custom/mlmassinvoicefromshipments"]
 	path = htdocs/custom/mlmassinvoicefromshipments
 	url = https://github.com/mainlab-srl/mlmassinvoicefromshipments.git
+	branch = master
 [submodule "htdocs/custom/mlcustomprints"]
 	path = htdocs/custom/mlcustomprints
 	url = https://github.com/mainlab-srl/mlcustomprints.git
+	branch = master
 [submodule "htdocs/custom/mlsupplierinvoiceaccounting"]
 	path = htdocs/custom/mlsupplierinvoiceaccounting
 url=https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
-	branch = develop
+	branch = master
 [submodule "htdocs/custom/mlautosalesrep"]
 	path = htdocs/custom/mlautosalesrep
 	url = https://github.com/mainlab-srl/mlautosalesrep.git
-	branch = develop
+	branch = master
 [submodule "htdocs/custom/mlshowsdierrors"]
 	path = htdocs/custom/mlshowsdierrors
 	url = https://github.com/mainlab-srl/mlshowsdierrors.git
-	branch = develop
+	branch = master
 [submodule "htdocs/custom/mlpofromco"]
 	path = htdocs/custom/mlpofromco
 	url = https://github.com/mainlab-srl/mlpofromco.git
 [submodule "htdocs/custom/mlforcediscountonpo"]
 	path = htdocs/custom/mlforcediscountonpo
 	url = https://github.com/mainlab-srl/mlforcediscountonpo.git
-	branch = develop
+	branch = master
 [submodule "htdocs/custom/mlddtcarico"]
 	path = htdocs/custom/mlddtcarico
 	url = https://github.com/mainlab-srl/mlddtcarico.git
-	branch = develop
+	branch = master
 [submodule "htdocs/custom/mlibancheck"]
 	path = htdocs/custom/mlibancheck
 	url = https://github.com/mainlab-srl/mlibancheck.git
-	branch = develop
+	branch = master
