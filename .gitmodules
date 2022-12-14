@@ -53,3 +53,6 @@ url=https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
 	path = htdocs/custom/mlibancheck
 	url = https://github.com/mainlab-srl/mlibancheck.git
 	branch = master
+[submodule "htdocs/custom/mlthirdpartyaddon"]
+	path = htdocs/custom/mlthirdpartyaddon
+	url = https://github.com/mainlab-srl/mlthirdpartyaddon.git
