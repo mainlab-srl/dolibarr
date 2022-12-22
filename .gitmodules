@@ -56,3 +56,6 @@ url=https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
 [submodule "htdocs/custom/mlthirdpartyaddon"]
 	path = htdocs/custom/mlthirdpartyaddon
 	url = https://github.com/mainlab-srl/mlthirdpartyaddon.git
+[submodule "htdocs/custom/mlcrmaddon"]
+	path = htdocs/custom/mlcrmaddon
+	url = https://github.com/mainlab-srl/mlcrmaddon.git
