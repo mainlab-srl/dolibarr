@@ -1,5 +1,32 @@
 # CHANGELOG FOR ML-DOLIBARR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## [ml 1.4.0] - 2022-10-24
+
+### Fixed
+
+- Ricalcolo totale preventivo alle variazioni dei blocchi o righe di dettaglio quando si forzano i totlai blocco
+- Impedire la rigenerazione di scadenze per pagamenti RIBA già inviati nei flussi bancari
+- Prezzi errati in ordine fornitore per prodotti con più fornitori o fornitori con più listini. Rivisto metodo di 
+  estrazione fornitore dal prodotto non più usando il prefisso
+- Errore in vista fattura fornitore
+- Impostato um a pezzi nell'inserimento prodotti al volo, prima era kg
+- Corretta larghezza colonna su ordine e preventivi, con descrizioni aggiuntive molto lunghe per lasciare abbastanza 
+  spazio alle altre colonne
+- Controllo validità data nell'inserimento manuale delle scadenze
+
+### Modified
+
+- Traduzione dicitura DEPOSIT nei PDF e negli XML delle fatture
+- Calcolo scadenze senza iva per clienti che applicano lo split payment
+
+### Added
+
+- Cancellazione blocchi vuoti negli ordini
+- Possibilità di forzare la quantità da spedire in un ordine cliente indipendentemente dalla disponibilità
+- Controllo validità IBAN
+- Controllo formale su CF e P.IVA in inserimento anagrafica cliente
+- In fattura pdf, in caso di esenzione iva, riportata il campo “note” del dizionario aliquote iva
+
 ## [ml1.3.2] - 2022-10-24
 
 ### Modified
