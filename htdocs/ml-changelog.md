@@ -1,6 +1,27 @@
 # CHANGELOG FOR ML-DOLIBARR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
-## [ml 1.4.0] - 2022-10-24
+## [ml 1.5.0] - 2023-02-07
+
+### Fixed
+
+- Blocchi contrassegnati come nascosti ora non appaiono nel PDF assieme alle righe figlie
+- Creazione ordini fornitore da ordini cliente, per fonitori esteri ora l'iva indicata è a zero
+
+### Modified
+
+- Revisione indicazioni di pagamento con bonifico, ripristinata l'indicazione della banca nel piè pagina in PDF
+- Sui soggetti esteri bypassato controllo sulla congruenza della p.iva e/o cf
+
+### Added
+
+- Aggiunta codice CUC nei flussi RIBA solo per una banca specifica (Valsabbina)
+- NUova gestione delle eccezioni ai termini di pagamento per posticipare pagamenti per dati clienti e mesi specifici
+- Nuovo modulo FE con blocco modifica fatture già inviate a SDI
+- Nuovi report ad uso amministrativo valorizzazione righe ordini evadibili e valorizzazione righe DDT evase
+- Gestioni dichiarazioni di intento
+- Inserimento dati dichiarazioni di intento nel flusso XML della fattura e e nella stampa PDF
+
+## [ml 1.4.0] - 2022-12-24
 
 ### Fixed
 
