@@ -59,3 +59,6 @@ url=https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
 [submodule "htdocs/custom/mlcrmaddon"]
 	path = htdocs/custom/mlcrmaddon
 	url = https://github.com/mainlab-srl/mlcrmaddon.git
+[submodule "htdocs/custom/mldichiarazioneintento"]
+	path = htdocs/custom/mldichiarazioneintento
+	url = https://github.com/mainlab-srl/mldichiarazioneintento.git
