@@ -64,4 +64,4 @@ url=https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
 	url = https://github.com/mainlab-srl/mldichiarazioneintento.git
 [submodule "mlmassiverowdeletion"]
 	path = htdocs/custom/mlmassiverowdeletion
-	url = https://github.com/mainlab-srl/mlmassiverowdeletion.git
+	url = https://github.com/mainlab-srl/mlmassiverowsdelete.git
