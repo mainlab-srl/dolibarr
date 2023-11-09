@@ -80,3 +80,9 @@ htdocs/install.lock
 materiale/
 .gitmodules.bak
 htdocs/conf/conf.php.bak
+error/
+stats/
+adminer.php
+ARCHLIGHT_PROD
+favicon.ico
+standard_index.html
