@@ -67,4 +67,4 @@ url=https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
 	url = https://github.com/mainlab-srl/mlmassiverowsdelete.git
 [submodule "htdocs/custom/fattureelettronicheita"]
 	path = htdocs/custom/fattureelettronicheita
-	url = D:\\mainlab\\dolibarr\\Archlight DEV\\htdocs\\custom\\fattureelettronicheita
+	url = https://github.com/mainlab-srl/fattureelettronicheita.git
