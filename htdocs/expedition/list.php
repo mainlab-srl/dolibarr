@@ -52,6 +52,41 @@ $expeditionid = GETPOST('id', 'int');
 if ($user->socid) $socid = $user->socid;
 $result = restrictedArea($user, 'expedition', $expeditionid, '');
 
+// **** BEGIN INJECTED CODE -- Always restore some filters and sort criteria
+$resetFilters = GETPOST('button_removefilter_x', 'alpha') || GETPOST('button_removefilter.x', 'alpha') || GETPOST('button_removefilter', 'alpha');
+if(!$resetFilters && isset($_SESSION['lastsearch_values_tmp_expedition/list.php'])) {
+
+	$lastsearch_values = json_decode($_SESSION['lastsearch_values_tmp_expedition/list.php']);
+
+	// Ordinamento
+	if(!GETPOSTISSET('sortfield' && isset($lastsearch_values->sortfield))) {
+		$_POST['sortfield'] = $lastsearch_values->sortfield;
+		$_POST['sortorder'] = $lastsearch_values->sortorder;
+	}
+
+	// FIltro per causale trasporto
+	if(!GETPOSTISSET('search_options_ddti_causale_trasporto') && isset($lastsearch_values->search_options_ddti_causale_trasporto)) {
+		$_POST['search_options_ddti_causale_trasporto'] = $lastsearch_values->search_options_ddti_causale_trasporto;
+	}
+
+	// Filtro fattura sì/no
+	if(!GETPOSTISSET('search_linked_invoice') && isset($lastsearch_values->search_linked_invoice)) {
+		$_POST['search_linked_invoice'] = $lastsearch_values->search_linked_invoice;
+	}
+	
+	// Filtro tipo di pagamento
+	if(!GETPOSTISSET('search_mode_reglement_id') && isset($lastsearch_values->search_mode_reglement_id)) {
+		$_POST['search_mode_reglement_id'] = $lastsearch_values->search_mode_reglement_id;
+	}
+	
+	// Filtro termini di pagamento
+	if(!GETPOSTISSET('search_cond_reglement_id') && isset($lastsearch_values->search_cond_reglement_id)) {
+		$_POST['search_cond_reglement_id'] = $lastsearch_values->search_cond_reglement_id;
+	}
+	
+}
+// **** END INJECTED CODE
+
 $search_ref_exp = GETPOST("search_ref_exp", 'alpha');
 $search_ref_liv = GETPOST('search_ref_liv', 'alpha');
 $search_ref_customer = GETPOST('search_ref_customer', 'alpha');
@@ -75,6 +110,8 @@ $search_categ_cus = GETPOST("search_categ_cus", 'int');
 $search_product_category = GETPOST('search_product_category', 'int');
 $optioncss = GETPOST('optioncss', 'alpha');
 $search_linked_invoice = GETPOST('search_linked_invoice','int'); // **** INJECTED CODE
+$search_mode_reglement_id = GETPOST('search_mode_reglement_id','int'); // **** INJECTED CODE
+$search_cond_reglement_id = GETPOST('search_cond_reglement_id','int'); // **** INJECTED CODE
 
 $limit = GETPOST('limit', 'int') ?GETPOST('limit', 'int') : $conf->liste_limit;
 $sortfield = GETPOST('sortfield', 'aZ09comma');
@@ -182,6 +219,8 @@ if (GETPOST('button_removefilter_x', 'alpha') || GETPOST('button_removefilter.x'
 	$search_array_options = array();
 	$search_categ_cus = 0;
 	$search_linked_invoice = -1; // **** INJECTED CODE
+	$search_mode_reglement_id = -1; // **** INJECTED CODE
+	$search_cond_reglement_id = -1; // **** INJECTED CODE
 }
 
 if (empty($reshook))
@@ -357,6 +396,9 @@ if ($resql)
 	if ($search_status != '') $param .= '&search_status='.urlencode($search_status);
 	if ($optioncss != '')  $param .= '&optioncss='.urlencode($optioncss);
 	if ($search_linked_invoice >= 0) $param .= '&search_linked_invoice='.urlencode($search_linked_invoice); // **** INJECTED CODE
+	if ($search_mode_reglement_id >= 0) $param .= '&search_mode_reglement_id='.urlencode($search_mode_reglement_id); // **** INJECTED CODE
+	if ($search_cond_reglement_id >= 0) $param .= '&search_cond_reglement_id='.urlencode($search_cond_reglement_id); // **** INJECTED CODE
+
 	// Add $param from extra fields
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_list_search_param.tpl.php';
 
