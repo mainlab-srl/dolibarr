@@ -9,15 +9,18 @@ nbproject
 default.properties
 .settings/
 .buildpath
+.gitmodules
+.github/workflows/
 /.project
 /.pydevproject
 /.vscode
 .DS_Store
-.idea
+.idea/
 *.iml
 *.orig
 Thumbs.db
 /dolibarr_genesis.mp4
+.phpunit.result.cache
 # Log files
 dolibarr_install.log
 upgrade.log
@@ -41,6 +44,8 @@ htdocs/includes/sebastian/
 htdocs/includes/squizlabs/
 htdocs/includes/webmozart/
 htdocs/.well-known/apple-developer-merchantid-domain-association
+/factory/
+/output/
 
 # Node Modules
 build/yarn-error.log
@@ -54,6 +59,16 @@ yarn.lock
 package-lock.json
 
 doc/install.lock
+/.asciidoctorconfig.adoc
+
+# Qodana
+.idea/vcs.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/jsLinters/jshint.xml
+/composer.json
+/composer.lock
 htdocs/core/modules/propale/doc/pdf_arch_nofilters.modules.php
 htdocs/core/modules/propale/doc/pdf_arch_filters.modules.php
 htdocs/core/modules/propale/doc/pdf_archlight.modules.php
@@ -65,3 +80,9 @@ htdocs/install.lock
 materiale/
 .gitmodules.bak
 htdocs/conf/conf.php.bak
+error/
+stats/
+adminer.php
+ARCHLIGHT_PROD
+favicon.ico
+standard_index.html
