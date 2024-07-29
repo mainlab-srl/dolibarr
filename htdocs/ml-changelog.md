@@ -1,5 +1,10 @@
 # CHANGELOG FOR ML-DOLIBARR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## [ml 1.6.0] - 2023-11-03
+
+- Aggiornamento submodules
+- Sync alla versione Dolibarr 18.0.3
+
 ## [ml 1.5.0] - 2023-02-07
 
 ### Fixed
