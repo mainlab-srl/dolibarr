@@ -74,3 +74,7 @@
 	path = htdocs/custom/fattureelettronicheita
 	url = https://github.com/mainlab-srl/fattureelettronicheita.git
 	branch = master
+[submodule "htdocs/custom/mlinvoicecollectionfees"]
+	path = htdocs/custom/mlinvoicecollectionfees
+	url = https://github.com/mainlab-srl/mlinvoicecollectionfees.git
+	branch = master
