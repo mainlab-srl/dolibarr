@@ -78,3 +78,6 @@
 	path = htdocs/custom/mlinvoicecollectionfees
 	url = https://github.com/mainlab-srl/mlinvoicecollectionfees.git
 	branch = master
+[submodule "htdocs/custom/mlmassstockmovedoc"]
+	path = htdocs/custom/mlmassstockmovedoc
+	url = git@github.com:mainlab-srl/mlmassstockmovedoc.git
