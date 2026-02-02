@@ -82,3 +82,6 @@
 	path = htdocs/custom/mlmassstockmovedoc
 	url = https://github.com/mainlab-srl/mlmassstockmovedoc.git
 	branch = master
+[submodule "htdocs/custom/mlshippingaddress"]
+	path = htdocs/custom/mlshippingaddress
+	url = https://github.com/mainlab-srl/mlshippingaddress.git
