@@ -332,7 +332,7 @@ if (getDolGlobalInt('MAIN_SUBMODULE_DELIVERY')) {
 }
 // **** BEGIN INJECTED CODE -- Add join (used by ML modules to join invoice data)
 $parameters = array();
-$reshook = $hookmanager->executeHooks('printFieldListJoin', $parameters); // Note that $action and $object may have been modified by hook
+$reshook = $hookmanager->executeHooks('printFieldListJoin', $parameters, $object, $action); // Note that $action and $object may have been modified by hook
 $sql .= $hookmanager->resPrint;
 // **** END INJECTED CODE
 $sql .= ' LEFT JOIN '.MAIN_DB_PREFIX.'user as u ON e.fk_user_author = u.rowid';
@@ -605,8 +605,8 @@ if ($search_status != '') {
 	$param .= '&search_status='.urlencode($search_status);
 }
 if ($search_linked_invoice >= 0) $param .= '&search_linked_invoice='.urlencode($search_linked_invoice); // **** INJECTED CODE
-if ($search_mode_reglement_id >= 0) $param .= '&search_mode_reglement_id='.urlencode($search_mode_reglement_id); // **** INJECTED CODE
-if ($search_cond_reglement_id >= 0) $param .= '&search_cond_reglement_id='.urlencode($search_cond_reglement_id); // **** INJECTED CODE
+if ($search_mode_reglement_id > 0) $param .= '&search_mode_reglement_id='.urlencode($search_mode_reglement_id); // **** INJECTED CODE
+if ($search_cond_reglement_id > 0) $param .= '&search_cond_reglement_id='.urlencode($search_cond_reglement_id); // **** INJECTED CODE
 if ($optioncss != '') {
 	$param .= '&optioncss='.urlencode($optioncss);
 }
