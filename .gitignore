@@ -68,3 +68,29 @@ doc/install.lock
 phpstan_custom.neon
 /.php-cs-fixer.cache
 /.php_cs.cache
+
+# MainLab-specific ignores (ported from ml-develop)
+.github/workflows/
+# Qodana
+.idea/vcs.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/jsLinters/jshint.xml
+htdocs/core/modules/propale/doc/pdf_arch_nofilters.modules.php
+htdocs/core/modules/propale/doc/pdf_arch_filters.modules.php
+htdocs/core/modules/propale/doc/pdf_archlight.modules.php
+htdocs/core/modules/propale/doc/pdf_clienti.modules.php
+htdocs/*_riba.txt
+htdocs/core/modules/commande/doc/pdf_archlight_clientorder.modules.php
+htdocs/.vscode/
+htdocs/install.lock
+materiale/
+.gitmodules.bak
+htdocs/conf/conf.php.bak
+error/
+stats/
+adminer.php
+ARCHLIGHT_PROD
+favicon.ico
+standard_index.html
