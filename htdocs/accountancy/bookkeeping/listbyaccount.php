@@ -123,7 +123,14 @@ if ($sortfield == "") {
 }
 
 // Initialize technical object to manage hooks of page. Note that conf->hooks_modules contains array of hook context
-$object = new BookKeeping($db);
+// **** BEGIN INJECTED CODE -- Load ML extended BookKeeping class if module is active
+if (isModEnabled('mltransactionrefs') && class_exists('MlBookKeeping')) {
+	$object = new MlBookKeeping($db);
+} else {
+	$object = new BookKeeping($db);
+}
+// $object = new BookKeeping($db); *** ORIGINAL CODE
+// **** END INJECTED CODE
 $formfile = new FormFile($db);
 $hookmanager->initHooks(array($context_default));
 
@@ -1304,6 +1311,10 @@ while ($i < min($num, $limit)) {
 
 	// Fields from hook
 	$parameters = array('arrayfields'=>$arrayfields, 'obj'=>$line);
+	// **** BEGIN INJECTED CODE -- Pass full object and index for ML transaction refs display
+	$parameters['obj'] = $object;
+	$parameters['index'] = $i;
+	// **** END INJECTED CODE
 	$reshook = $hookmanager->executeHooks('printFieldListValue', $parameters); // Note that $action and $object may have been modified by hook
 	print $hookmanager->resPrint;
 

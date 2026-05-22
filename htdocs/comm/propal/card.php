@@ -2096,6 +2096,20 @@ if ($action == 'create') {
 		// Other attributes
 		include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 
+		// **** BEGIN INJECTED CODE -- Hook to allow adding elements to the end of the create form
+		$reshook = $hookmanager->executeHooks(
+			'addExtraDataToCard',
+			$parameters,
+			$object,
+			$action
+		); // Note that $action and $object may have been modified by hook
+		if (empty($reshook)) {
+			print $hookmanager->resPrint;
+		} elseif ($reshook > 0) {
+			print $hookmanager->resPrint;
+		}
+		// **** END INJECTED CODE
+
 		// Lines from source
 		if (!empty($origin) && !empty($originid) && is_object($objectsrc)) {
 			// TODO for compatibility

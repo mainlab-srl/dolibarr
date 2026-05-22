@@ -4680,20 +4680,23 @@ if ($action == 'create') {
 		print '<table class="nobordernopadding centpercent"><tr><td>';
 		print $langs->trans('PaymentConditionsShort');
 		print '</td>';
-		if ($object->type != Facture::TYPE_CREDIT_NOTE && $action != 'editconditions' && $usercancreate) {
+		if (/* $object->type != Facture::TYPE_CREDIT_NOTE && --INJECTED-- */ $action != 'editconditions' && $usercancreate) {
 			print '<td class="right"><a class="editfielda" href="'.$_SERVER["PHP_SELF"].'?action=editconditions&token='.newToken().'&facid='.$object->id.'">'.img_edit($langs->trans('SetConditions'), 1).'</a></td>';
 		}
 		print '</tr></table>';
 		print '</td><td>';
-		if ($object->type != Facture::TYPE_CREDIT_NOTE) {
+		// **** BEGIN INJECTED CODE -- If commented out: allow editing payment conditions on credit notes
+		//if ($object->type != Facture::TYPE_CREDIT_NOTE) {
+		//{
 			if ($action == 'editconditions') {
 				$form->form_conditions_reglement($_SERVER['PHP_SELF'].'?facid='.$object->id, $object->cond_reglement_id, 'cond_reglement_id');
 			} else {
 				$form->form_conditions_reglement($_SERVER['PHP_SELF'].'?facid='.$object->id, $object->cond_reglement_id, 'none');
 			}
-		} else {
-			print '&nbsp;';
-		}
+		//} else {
+		//	print '&nbsp;';
+		//}
+		// **** END INJECTED CODE
 		print '</td></tr>';
 
 		// Date payment term
