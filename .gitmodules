@@ -1,0 +1,84 @@
+[submodule "htdocs/custom/mlpropaleaddon"]
+	path = htdocs/custom/mlpropaleaddon
+	url = https://github.com/mainlab-srl/mlpropaleaddon.git
+	branch = master
+[submodule "htdocs/custom/mldeadlines"]
+	path = htdocs/custom/mldeadlines
+	url = https://github.com/mainlab-srl/mldeadlines.git
+	branch = master
+[submodule "htdocs/custom/mlriba"]
+	path = htdocs/custom/mlriba
+	url = https://github.com/mainlab-srl/mlriba.git
+	branch = master
+[submodule "htdocs/custom/mlimportproduct"]
+	path = htdocs/custom/mlimportproduct
+	url = https://github.com/mainlab-srl/mlimportproduct.git
+	branch = master
+[submodule "htdocs/custom/mltransactionrefs"]
+	path = htdocs/custom/mltransactionrefs
+	url = https://github.com/mainlab-srl/mltransactionrefs.git
+	branch = master
+[submodule "htdocs/custom/mlmassinvoicefromshipments"]
+	path = htdocs/custom/mlmassinvoicefromshipments
+	url = https://github.com/mainlab-srl/mlmassinvoicefromshipments.git
+	branch = master
+[submodule "htdocs/custom/mlcustomprints"]
+	path = htdocs/custom/mlcustomprints
+	url = https://github.com/mainlab-srl/mlcustomprints.git
+	branch = master
+[submodule "htdocs/custom/mlsupplierinvoiceaccounting"]
+	path = htdocs/custom/mlsupplierinvoiceaccounting
+	url = https://github.com/mainlab-srl/mlsupplierinvoiceaccounting.git
+	branch = master
+[submodule "htdocs/custom/mlautosalesrep"]
+	path = htdocs/custom/mlautosalesrep
+	url = https://github.com/mainlab-srl/mlautosalesrep.git
+	branch = master
+[submodule "htdocs/custom/mlshowsdierrors"]
+	path = htdocs/custom/mlshowsdierrors
+	url = https://github.com/mainlab-srl/mlshowsdierrors.git
+	branch = master
+[submodule "htdocs/custom/mlpofromco"]
+	path = htdocs/custom/mlpofromco
+	url = https://github.com/mainlab-srl/mlpofromco.git
+	branch = master
+[submodule "htdocs/custom/mlforcediscountonpo"]
+	path = htdocs/custom/mlforcediscountonpo
+	url = https://github.com/mainlab-srl/mlforcediscountonpo.git
+	branch = master
+[submodule "htdocs/custom/mlddtcarico"]
+	path = htdocs/custom/mlddtcarico
+	url = https://github.com/mainlab-srl/mlddtcarico.git
+	branch = master
+[submodule "htdocs/custom/mlibancheck"]
+	path = htdocs/custom/mlibancheck
+	url = https://github.com/mainlab-srl/mlibancheck.git
+	branch = master
+[submodule "htdocs/custom/mlthirdpartyaddon"]
+	path = htdocs/custom/mlthirdpartyaddon
+	url = https://github.com/mainlab-srl/mlthirdpartyaddon.git
+	branch = master
+[submodule "htdocs/custom/mlcrmaddon"]
+	path = htdocs/custom/mlcrmaddon
+	url = https://github.com/mainlab-srl/mlcrmaddon.git
+	branch = master
+[submodule "htdocs/custom/mldichiarazioneintento"]
+	path = htdocs/custom/mldichiarazioneintento
+	url = https://github.com/mainlab-srl/mldichiarazioneintento.git
+	branch = master
+[submodule "htdocs/custom/mlmassiverowdeletion"]
+	path = htdocs/custom/mlmassiverowdeletion
+	url = https://github.com/mainlab-srl/mlmassiverowsdelete.git
+	branch = master
+[submodule "htdocs/custom/fattureelettronicheita"]
+	path = htdocs/custom/fattureelettronicheita
+	url = https://github.com/mainlab-srl/fattureelettronicheita.git
+	branch = master
+[submodule "htdocs/custom/mlinvoicecollectionfees"]
+	path = htdocs/custom/mlinvoicecollectionfees
+	url = https://github.com/mainlab-srl/mlinvoicecollectionfees.git
+	branch = master
+[submodule "htdocs/custom/mlmassstockmovedoc"]
+	path = htdocs/custom/mlmassstockmovedoc
+	url = https://github.com/mainlab-srl/mlmassstockmovedoc.git
+	branch = master
