@@ -55,6 +55,28 @@ $toselect   = GETPOST('toselect', 'array');
 $optioncss = GETPOST('optioncss', 'alpha');
 $mode = GETPOST('mode', 'alpha');
 
+// **** BEGIN INJECTED CODE -- Always restore some filters and sort criteria from session
+if (isset($_SESSION['lastsearch_values_tmp_expedition/list.php'])) {
+	$lastsearch_values = json_decode($_SESSION['lastsearch_values_tmp_expedition/list.php']);
+
+	// Sort order
+	if (!GETPOSTISSET('sortfield') && isset($lastsearch_values->sortfield)) {
+		$_POST['sortfield'] = $lastsearch_values->sortfield;
+		$_POST['sortorder'] = $lastsearch_values->sortorder;
+	}
+
+	// Filter: transport reason (DDT causale trasporto)
+	if (!GETPOSTISSET('search_options_ddti_causale_trasporto') && isset($lastsearch_values->search_options_ddti_causale_trasporto)) {
+		$_POST['search_options_ddti_causale_trasporto'] = $lastsearch_values->search_options_ddti_causale_trasporto;
+	}
+
+	// Filter: invoiced yes/no
+	if (!GETPOSTISSET('search_linked_invoice') && isset($lastsearch_values->search_linked_invoice)) {
+		$_POST['search_linked_invoice'] = $lastsearch_values->search_linked_invoice;
+	}
+}
+// **** END INJECTED CODE
+
 $search_ref_exp = GETPOST("search_ref_exp", 'alpha');
 $search_ref_liv = GETPOST('search_ref_liv', 'alpha');
 $search_ref_customer = GETPOST('search_ref_customer', 'alpha');
@@ -77,6 +99,9 @@ $search_sale = GETPOST('search_sale', 'intcomma');
 $search_categ_cus = GETPOST("search_categ_cus", 'intcomma');
 $search_product_category = GETPOST('search_product_category', 'intcomma');
 
+$search_linked_invoice = GETPOST('search_linked_invoice', 'int'); // **** INJECTED CODE
+$search_mode_reglement_id = GETPOST('search_mode_reglement_id', 'int'); // **** INJECTED CODE
+$search_cond_reglement_id = GETPOST('search_cond_reglement_id', 'int'); // **** INJECTED CODE
 $limit = GETPOSTINT('limit') ? GETPOSTINT('limit') : $conf->liste_limit;
 $sortfield = GETPOST('sortfield', 'aZ09comma');
 $sortorder = GETPOST('sortorder', 'aZ09comma');
@@ -210,6 +235,9 @@ if (GETPOST('button_removefilter_x', 'alpha') || GETPOST('button_removefilter.x'
 	$search_array_options = array();
 	$search_categ_cus = 0;
 	$search_all = '';
+	$search_linked_invoice = -1; // **** INJECTED CODE
+	$search_mode_reglement_id = -1; // **** INJECTED CODE
+	$search_cond_reglement_id = -1; // **** INJECTED CODE
 }
 
 if (empty($reshook)) {
@@ -689,6 +717,11 @@ if (getDolGlobalInt('MAIN_SUBMODULE_DELIVERY')) {
 	$sql .= " LEFT JOIN ".MAIN_DB_PREFIX."element_element as ee ON e.rowid = ee.fk_source AND ee.sourcetype = 'shipping' AND ee.targettype = 'delivery'";
 	$sql .= " LEFT JOIN ".MAIN_DB_PREFIX."delivery as l ON l.rowid = ee.fk_target";
 }
+// **** BEGIN INJECTED CODE -- Add join (used by ML modules to join invoice data)
+$parameters = array();
+$reshook = $hookmanager->executeHooks('printFieldListJoin', $parameters, $object, $action); // Note that $action and $object may have been modified by hook
+$sql .= $hookmanager->resPrint;
+// **** END INJECTED CODE
 $sql .= ' LEFT JOIN '.MAIN_DB_PREFIX.'user as u ON e.fk_user_author = u.rowid';
 if ($search_user > 0) {		// Get link to order to get the order id in eesource.fk_source
 	$sql .= " LEFT JOIN ".MAIN_DB_PREFIX."element_element as eesource ON eesource.fk_target = e.rowid AND eesource.targettype = 'shipping' AND eesource.sourcetype = 'commande'";
@@ -968,6 +1001,9 @@ if ($search_product_category != '') {
 if (($search_categ_cus > 0) || ($search_categ_cus == -2)) {
 	$param .= '&search_categ_cus='.urlencode((string) ($search_categ_cus));
 }
+if ($search_linked_invoice >= 0) $param .= '&search_linked_invoice='.urlencode($search_linked_invoice); // **** INJECTED CODE
+if ($search_mode_reglement_id > 0) $param .= '&search_mode_reglement_id='.urlencode($search_mode_reglement_id); // **** INJECTED CODE
+if ($search_cond_reglement_id > 0) $param .= '&search_cond_reglement_id='.urlencode($search_cond_reglement_id); // **** INJECTED CODE
 if ($search_status != '') {
 	$param .= '&search_status='.urlencode($search_status);
 }
