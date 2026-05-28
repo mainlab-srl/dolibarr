@@ -4814,7 +4814,9 @@ if ($action == 'create') {
 		print '<table class="nobordernopadding centpercent"><tr><td>';
 		print $langs->trans('PaymentConditionsShort');
 		print '</td>';
+		// **** BEGIN INJECTED CODE -- Allow editing payment conditions on credit notes (condition guard)
 		if (/* $object->type != Facture::TYPE_CREDIT_NOTE && --INJECTED-- */ $action != 'editconditions' && $usercancreate) {
+		// **** END INJECTED CODE
 			print '<td class="right"><a class="editfielda" href="'.$_SERVER["PHP_SELF"].'?action=editconditions&token='.newToken().'&facid='.$object->id.'">'.img_edit($langs->trans('SetConditions'), 1).'</a></td>';
 		}
 		print '</tr></table>';
